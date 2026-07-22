@@ -1,8 +1,2 @@
-# UPMAT Site
-
-Site estático pronto para publicação na Vercel.
-
-Próximas atualizações:
-- Inserir fotos originais na galeria.
-- Adicionar o PDF do press kit ao botão de download.
-- Confirmar o vídeo principal do YouTube.
+# UPMAT Site — versão 2
+Atualização com fotos reais, hero cinematográfico, seção Sobre com retrato e galeria responsiva com abertura em tela cheia.
