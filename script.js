@@ -1,149 +1,83 @@
-/* ==================================================
-   UPMAT Website v3.0
-   script.js
-================================================== */
+/* =========================================================
+UPMAT WEBSITE — SCRIPT.JS
+Versão 3.1
+Atualização focada na Hero e navegação mobile
+========================================================= */
 
-// ==============================
-// MENU MOBILE
-// ==============================
+document.addEventListener("DOMContentLoaded", () => {
+  const header = document.querySelector(".header");
+  const menuButton = document.querySelector(".menu-mobile");
+  const navMenu = document.querySelector(".nav-menu");
+  const navLinks = document.querySelectorAll(".nav-menu a");
 
-const menuButton = document.querySelector(".menu-mobile");
-const navMenu = document.querySelector(".nav-menu");
-
-if (menuButton && navMenu) {
-    menuButton.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-        menuButton.classList.toggle("active");
-    });
-}
-
-// ==============================
-// HEADER AO ROLAR
-// ==============================
-
-const header = document.querySelector(".header");
-
-window.addEventListener("scroll", () => {
-
+  function updateHeader() {
     if (!header) return;
 
-    if (window.scrollY > 80) {
-        header.classList.add("scrolled");
+    if (window.scrollY > 24) {
+      header.classList.add("scrolled");
     } else {
-        header.classList.remove("scrolled");
+      header.classList.remove("scrolled");
     }
+  }
 
+  function closeMenu() {
+    if (!menuButton || !navMenu) return;
+
+    menuButton.classList.remove("active");
+    navMenu.classList.remove("active");
+    menuButton.setAttribute("aria-expanded", "false");
+    document.body.style.overflow = "";
+  }
+
+  function toggleMenu() {
+    if (!menuButton || !navMenu) return;
+
+    const isOpen = navMenu.classList.toggle("active");
+
+    menuButton.classList.toggle("active", isOpen);
+    menuButton.setAttribute("aria-expanded", String(isOpen));
+
+    document.body.style.overflow = isOpen ? "hidden" : "";
+  }
+
+  if (menuButton && navMenu) {
+    menuButton.addEventListener("click", toggleMenu);
+  }
+
+  navLinks.forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!menuButton || !navMenu) return;
+
+    const clickedInsideMenu = navMenu.contains(event.target);
+    const clickedMenuButton = menuButton.contains(event.target);
+
+    if (
+      navMenu.classList.contains("active") &&
+      !clickedInsideMenu &&
+      !clickedMenuButton
+    ) {
+      closeMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 920) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("scroll", updateHeader, {
+    passive: true
+  });
+
+  updateHeader();
 });
-
-// ==============================
-// SCROLL SUAVE
-// ==============================
-
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-
-    link.addEventListener("click", function (e) {
-
-        e.preventDefault();
-
-        const target = document.querySelector(this.getAttribute("href"));
-
-        if (target) {
-
-            target.scrollIntoView({
-                behavior: "smooth"
-            });
-
-        }
-
-        if (navMenu) {
-            navMenu.classList.remove("active");
-        }
-
-    });
-
-});
-
-// ==============================
-// ANIMAÇÃO AO APARECER
-// ==============================
-
-const observer = new IntersectionObserver((entries) => {
-
-    entries.forEach(entry => {
-
-        if (entry.isIntersecting) {
-            entry.target.classList.add("show");
-        }
-
-    });
-
-}, {
-    threshold: 0.15
-});
-
-document.querySelectorAll("section").forEach(section => {
-
-    section.classList.add("hidden");
-
-    observer.observe(section);
-
-});
-
-// ==============================
-// LIGHTBOX DA GALERIA
-// ==============================
-
-const galleryImages = document.querySelectorAll(".gallery-grid img");
-
-if (galleryImages.length > 0) {
-
-    const lightbox = document.createElement("div");
-
-    lightbox.id = "lightbox";
-
-    lightbox.innerHTML = "<img>";
-
-    document.body.appendChild(lightbox);
-
-    const lightboxImage = lightbox.querySelector("img");
-
-    galleryImages.forEach(image => {
-
-        image.addEventListener("click", () => {
-
-            lightbox.classList.add("active");
-
-            lightboxImage.src = image.src;
-
-        });
-
-    });
-
-    lightbox.addEventListener("click", () => {
-
-        lightbox.classList.remove("active");
-
-    });
-
-}
-
-// ==============================
-// ANO AUTOMÁTICO
-// ==============================
-
-const footer = document.querySelector(".footer p");
-
-if (footer) {
-
-    footer.innerHTML =
-        "© " +
-        new Date().getFullYear() +
-        " UPMAT • Todos os direitos reservados.";
-
-}
-
-// ==============================
-// FINALIZAÇÃO
-// ==============================
-
-console.log("UPMAT Website v3.0 carregado com sucesso.");
