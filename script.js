@@ -1,7 +1,7 @@
 /* =========================================================
 UPMAT WEBSITE — SCRIPT.JS
-Versão 3.1
-Atualização focada na Hero e navegação mobile
+Versão 3.2
+Hero, navegação mobile e animações da seção Sobre
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -9,6 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuButton = document.querySelector(".menu-mobile");
   const navMenu = document.querySelector(".nav-menu");
   const navLinks = document.querySelectorAll(".nav-menu a");
+
+  /* =========================================================
+  HEADER
+  ========================================================= */
 
   function updateHeader() {
     if (!header) return;
@@ -19,6 +23,10 @@ document.addEventListener("DOMContentLoaded", () => {
       header.classList.remove("scrolled");
     }
   }
+
+  /* =========================================================
+  MENU MOBILE
+  ========================================================= */
 
   function closeMenu() {
     if (!menuButton || !navMenu) return;
@@ -74,6 +82,54 @@ document.addEventListener("DOMContentLoaded", () => {
       closeMenu();
     }
   });
+
+  /* =========================================================
+  ANIMAÇÕES DA SEÇÃO SOBRE
+  ========================================================= */
+
+  const revealElements = document.querySelectorAll(
+    [
+      ".about-kicker",
+      ".about-manifesto-header h2",
+      ".about-manifesto-image",
+      ".about-manifesto-content p",
+      ".about-manifesto-statement",
+      ".about-manifesto-signature"
+    ].join(",")
+  );
+
+  revealElements.forEach((element) => {
+    element.classList.add("reveal");
+  });
+
+  if ("IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        });
+      },
+      {
+        threshold: 0.14,
+        rootMargin: "0px 0px -70px 0px"
+      }
+    );
+
+    revealElements.forEach((element) => {
+      revealObserver.observe(element);
+    });
+  } else {
+    revealElements.forEach((element) => {
+      element.classList.add("visible");
+    });
+  }
+
+  /* =========================================================
+  EVENTOS DA PÁGINA
+  ========================================================= */
 
   window.addEventListener("scroll", updateHeader, {
     passive: true
