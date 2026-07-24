@@ -88,17 +88,17 @@ Novos arquivos serão adicionados conforme o projeto evoluir.
 
 <article class="media-kit-card media-kit-card-active media-kit-logo-card">
 
-<div class="media-kit-card-number">01</div>
+<div class="media-kit-logo-topbar">
+<span class="media-kit-card-number">01</span>
 
-<div class="media-kit-card-content">
-
-<div class="media-kit-card-topline">
 <span class="media-kit-status media-kit-status-active">
 DISPONÍVEL
 </span>
 
 <span class="media-kit-file-type">PNG</span>
 </div>
+
+<div class="media-kit-card-content media-kit-logo-content">
 
 <h3>Logos oficiais</h3>
 
@@ -126,9 +126,10 @@ loading="lazy">
 </div>
 
 <a
-href="downloads/logos/UPMAT_Logo_Oficial.zip"
+href="images/UPMAT_Logo_Oficial.png"
 class="media-kit-download media-kit-download-primary"
-download="UPMAT_Logo_Oficial.zip">
+download="UPMAT_Logo_Oficial.png"
+id="download-logo-png">
 BAIXAR PNG
 <span aria-hidden="true">↓</span>
 </a>
@@ -276,6 +277,35 @@ ENTRAR EM CONTATO
 </div>
 
 </footer>
+
+
+<script>
+(function(){
+    const button = document.getElementById('download-logo-png');
+    if(!button) return;
+
+    button.addEventListener('click', async function(event){
+        event.preventDefault();
+
+        try{
+            const response = await fetch(button.href, { cache: 'no-store' });
+            if(!response.ok) throw new Error('Arquivo não encontrado');
+
+            const blob = await response.blob();
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'UPMAT_Logo_Oficial.png';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            setTimeout(() => URL.revokeObjectURL(url), 1000);
+        }catch(error){
+            window.location.href = button.href;
+        }
+    });
+})();
+</script>
 
 </body>
 </html>
