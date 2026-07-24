@@ -97,6 +97,8 @@
 (() => {
   const carousel = document.querySelector('[data-logo-carousel]');
   if (!carousel) return;
+
+  const viewport = carousel.querySelector('[data-carousel-viewport]');
   const track = carousel.querySelector('[data-carousel-track]');
   const slides = [...track.children];
   const dots = [...document.querySelectorAll('[data-carousel-dot]')];
@@ -104,40 +106,89 @@
   const download = document.querySelector('[data-carousel-download]');
   const prev = carousel.querySelector('[data-carousel-prev]');
   const next = carousel.querySelector('[data-carousel-next]');
+
   let index = 0;
-  let startX = 0;
-  let dragging = false;
+  let touchStartX = 0;
+  let touchStartY = 0;
+  let mouseStartX = 0;
+  let isMouseDragging = false;
 
   function update(newIndex) {
     index = (newIndex + slides.length) % slides.length;
-    track.style.transform = `translateX(-${index * 100}%)`;
+    track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+
     const slide = slides[index];
     name.textContent = slide.dataset.logoName;
     download.href = slide.dataset.logoFile;
     download.setAttribute('download', slide.dataset.logoDownload);
-    dots.forEach((dot, i) => {
-      const active = i === index;
+
+    dots.forEach((dot, dotIndex) => {
+      const active = dotIndex === index;
       dot.classList.toggle('is-active', active);
       dot.setAttribute('aria-selected', String(active));
     });
   }
 
-  prev.addEventListener('click', () => update(index - 1));
-  next.addEventListener('click', () => update(index + 1));
-  dots.forEach(dot => dot.addEventListener('click', () => update(Number(dot.dataset.carouselDot))));
+  function goNext() {
+    update(index + 1);
+  }
 
-  track.addEventListener('pointerdown', e => {
-    dragging = true;
-    startX = e.clientX;
-    track.setPointerCapture(e.pointerId);
+  function goPrev() {
+    update(index - 1);
+  }
+
+  prev.addEventListener('click', goPrev);
+  next.addEventListener('click', goNext);
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      update(Number(dot.dataset.carouselDot));
+    });
   });
-  track.addEventListener('pointerup', e => {
-    if (!dragging) return;
-    const distance = e.clientX - startX;
-    if (Math.abs(distance) > 45) update(index + (distance < 0 ? 1 : -1));
-    dragging = false;
+
+  /* Swipe confiável para iPhone, iPad e Android */
+  viewport.addEventListener('touchstart', (event) => {
+    const touch = event.changedTouches[0];
+    touchStartX = touch.clientX;
+    touchStartY = touch.clientY;
+  }, { passive: true });
+
+  viewport.addEventListener('touchend', (event) => {
+    const touch = event.changedTouches[0];
+    const distanceX = touch.clientX - touchStartX;
+    const distanceY = touch.clientY - touchStartY;
+
+    /* Só troca a imagem quando o gesto é realmente horizontal. */
+    if (Math.abs(distanceX) < 35 || Math.abs(distanceX) <= Math.abs(distanceY)) return;
+
+    if (distanceX < 0) {
+      goNext();
+    } else {
+      goPrev();
+    }
+  }, { passive: true });
+
+  /* Arrastar com o mouse no desktop */
+  viewport.addEventListener('mousedown', (event) => {
+    isMouseDragging = true;
+    mouseStartX = event.clientX;
+    event.preventDefault();
   });
-  track.addEventListener('pointercancel', () => dragging = false);
+
+  window.addEventListener('mouseup', (event) => {
+    if (!isMouseDragging) return;
+
+    const distanceX = event.clientX - mouseStartX;
+    isMouseDragging = false;
+
+    if (Math.abs(distanceX) < 45) return;
+    distanceX < 0 ? goNext() : goPrev();
+  });
+
+  window.addEventListener('blur', () => {
+    isMouseDragging = false;
+  });
+
   update(0);
 })();
 </script>
