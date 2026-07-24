@@ -1,156 +1,479 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Materiais oficiais do projeto UPMAT para divulgação, contratação e imprensa." />
-  <title>UPMAT | Material Oficial</title>
 
-  <!-- Mantém o CSS principal do site -->
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Estilos exclusivos desta página -->
-  <link rel="stylesheet" href="media-kit.css" />
+<title>UPMAT | Tech House & Indie Dance</title>
+
+<meta name="description"
+content="UPMAT é um projeto brasileiro de música eletrônica que reinterpreta a energia das raves através do Tech House e do Indie Dance.">
+
+<meta name="keywords"
+content="UPMAT, DJ, Tech House, Indie Dance, Electronic Music, São Paulo, Brasil">
+
+<meta name="author"
+content="Matheus de Paula Silva">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="images/favicon.png">
+
 </head>
 
-<body class="media-kit-page">
-  <header class="media-header">
-    <a class="media-brand" href="index.html" aria-label="Voltar para a página inicial">
-      <img src="images/logo.PNG" alt="Logo UPMAT" />
-    </a>
+<body>
 
-    <a class="media-back" href="index.html">← VOLTAR AO SITE</a>
-  </header>
+<header class="header">
 
-  <main>
-    <section class="media-hero">
-      <div class="media-container">
-        <span class="media-eyebrow">MEDIA KIT</span>
-        <h1>UPMAT — MATERIAL OFICIAL</h1>
-        <span class="media-line" aria-hidden="true"></span>
-        <p>
-          Arquivos oficiais para divulgação, contratação e produção de materiais.
-          Utilize sempre as versões disponibilizadas nesta página.
-        </p>
-      </div>
-    </section>
+<div class="container nav-container">
 
-    <section class="media-assets">
-      <div class="media-container">
-        <div class="media-section-heading">
-          <span class="media-eyebrow">DOWNLOAD CENTER</span>
-          <h2>Ativos disponíveis</h2>
-        </div>
+<a href="#home" class="logo">
+<img src="images/logo.PNG" alt="UPMAT">
+</a>
 
-        <div class="media-grid">
+<nav>
+<ul class="nav-menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">Sobre</a></li>
+<li><a href="#music">Música</a></li>
+<li><a href="#gallery">Galeria</a></li>
+<li><a href="#presskit">Press Kit</a></li>
+<li><a href="#contact">Contato</a></li>
+</ul>
+</nav>
 
-          <article class="asset-card asset-card--active">
-            <div class="asset-number">01</div>
-            <div class="asset-content">
-              <span class="asset-status asset-status--available">DISPONÍVEL</span>
-              <h3>Logos oficiais</h3>
-              <p>
-                Versões oficiais da marca para fundos claros, escuros e transparentes.
-              </p>
+<button class="menu-mobile" type="button" aria-label="Abrir menu" aria-expanded="false">
+<span></span>
+<span></span>
+<span></span>
+</button>
 
-              <ul>
-                <li>Logo principal</li>
-                <li>Logo branca</li>
-                <li>Logo preta</li>
-                <li>Marca / ícone</li>
-                <li>PNG e SVG</li>
-              </ul>
+</div>
 
-              <a
-                class="asset-button"
-                href="downloads/logos/UPMAT_Logos_Oficiais.zip"
-                download
-              >
-                ↓ BAIXAR LOGOS
-              </a>
-            </div>
-          </article>
+</header>
 
-          <article class="asset-card asset-card--pending">
-            <div class="asset-number">02</div>
-            <div class="asset-content">
-              <span class="asset-status">EM PRODUÇÃO</span>
-              <h3>Fotos oficiais</h3>
-              <p>
-                Fotografias em alta resolução para flyers, banners e divulgação.
-              </p>
+<main>
 
-              <ul>
-                <li>Retratos verticais</li>
-                <li>Fotos horizontais</li>
-                <li>Imagens com espaço para texto</li>
-              </ul>
+<!-- ===================================================
+HERO — VERSÃO 3.1
+=================================================== -->
 
-              <span class="asset-button asset-button--disabled">EM BREVE</span>
-            </div>
-          </article>
+<section id="home" class="hero">
 
-          <article class="asset-card asset-card--pending">
-            <div class="asset-number">03</div>
-            <div class="asset-content">
-              <span class="asset-status">EM PRODUÇÃO</span>
-              <h3>Vídeos</h3>
-              <p>
-                Conteúdo oficial para divulgação do projeto em eventos e redes sociais.
-              </p>
+<div class="hero-overlay"></div>
 
-              <ul>
-                <li>Showreel</li>
-                <li>Vídeo de apresentação</li>
-                <li>Reels e cortes</li>
-              </ul>
+<img src="images/hero.jpg" class="hero-image" alt="UPMAT se apresentando">
 
-              <span class="asset-button asset-button--disabled">EM BREVE</span>
-            </div>
-          </article>
+<div class="hero-content">
 
-          <article class="asset-card asset-card--pending">
-            <div class="asset-number">04</div>
-            <div class="asset-content">
-              <span class="asset-status">EM PRODUÇÃO</span>
-              <h3>Documentos</h3>
-              <p>
-                Materiais técnicos e textos oficiais para produtores e contratantes.
-              </p>
+<img src="images/logo.PNG" class="hero-logo" alt="Logo UPMAT">
 
-              <ul>
-                <li>Release oficial</li>
-                <li>Rider técnico</li>
-                <li>Informações para divulgação</li>
-              </ul>
+<h1 class="hero-genre">TECH HOUSE · INDIE DANCE</h1>
 
-              <span class="asset-button asset-button--disabled">EM BREVE</span>
-            </div>
-          </article>
+<p class="hero-description">
+A energia das raves reinterpretada através do Tech House e do Indie Dance.
+</p>
 
-        </div>
-      </div>
-    </section>
+<div class="hero-buttons">
 
-    <section class="media-support">
-      <div class="media-container media-support-inner">
-        <div>
-          <span class="media-eyebrow">DÚVIDAS?</span>
-          <h2>Precisa de outro formato?</h2>
-          <p>Entre em contato para solicitar materiais específicos.</p>
-        </div>
+<a href="https://youtube.com/@upmaaat"
+target="_blank"
+rel="noopener noreferrer"
+class="btn hero-btn-primary"
+aria-label="Ouvir os sets do UPMAT no YouTube">
+<span aria-hidden="true">▶</span>
+OUVIR SET
+</a>
 
-        <a class="media-contact-button" href="index.html#contato">
-          ENTRAR EM CONTATO ↗
-        </a>
-      </div>
-    </section>
-  </main>
+<a href="#contact"
+class="btn-outline hero-btn-secondary"
+aria-label="Ir para a área de booking">
+<span aria-hidden="true">✉</span>
+BOOKING
+</a>
 
-  <footer class="media-footer">
-    <img src="images/logo.PNG" alt="UPMAT" />
-    <p>A ESTÉTICA DE CLUB. A ENERGIA DE RAVE.</p>
-    <span>© 2026 UPMAT</span>
-  </footer>
+</div>
+
+<p class="hero-location">
+São José dos Campos · Brasil
+</p>
+
+</div>
+
+<a href="#about" class="scroll-down" aria-label="Conhecer o projeto UPMAT">
+<span>SCROLL</span>
+<i aria-hidden="true"></i>
+</a>
+
+</section>
+
+<!-- ===================================================
+SOBRE — MANIFESTO UPMAT
+=================================================== -->
+
+<section id="about" class="about about-manifesto">
+
+<div class="container about-manifesto-container">
+
+<div class="about-manifesto-header">
+<span class="about-kicker">SOBRE O PROJETO</span>
+
+<h2>
+Onde a energia nunca<br>
+para de subir.
+</h2>
+</div>
+
+<div class="about-manifesto-grid">
+
+<div class="about-manifesto-image">
+<img src="images/about.jpg" alt="UPMAT durante uma apresentação">
+</div>
+
+<div class="about-manifesto-content">
+
+<p>
+Natural de São José dos Campos, <strong>UPMAT</strong> nasceu da vontade de
+reinterpretar a energia das raves através do Tech House e do Indie Dance.
+</p>
+
+<p>
+Depois de anos vivendo a cultura dos festivais e das pistas de dança,
+o projeto encontrou no Low BPM uma nova forma de transmitir aquilo que
+sempre fez parte dessa experiência:
+<strong>construção, tensão e progressão.</strong>
+</p>
+
+<div class="about-manifesto-statement" aria-label="Fazer a energia nunca parar de subir">
+<span>FAZER A ENERGIA</span>
+<strong>NUNCA PARAR</strong>
+<strong>DE SUBIR.</strong>
+</div>
+
+<p>
+Cada set é pensado como uma jornada. Em vez de buscar grandes momentos
+isolados, <strong>UPMAT</strong> trabalha a pista de forma contínua,
+onde cada transição prepara a próxima e cada música acrescenta um novo
+elemento à experiência.
+</p>
+
+<p>
+Mais do que selecionar músicas, o projeto busca conduzir pessoas.
+A proposta é criar uma experiência em que a energia evolui de forma
+natural, fazendo com que a pista caminhe junto até os momentos de maior
+intensidade.
+</p>
+
+<p>
+No fim, o objetivo não é apenas que o público lembre das músicas tocadas,
+mas da sensação de fazer parte de uma pista completamente conectada.
+</p>
+
+<div class="about-manifesto-signature">
+<span>A ESTÉTICA DE CLUB.</span>
+<strong>A ENERGIA DE RAVE.</strong>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================================
+MÚSICA — EXPERIÊNCIA UPMAT
+=================================================== -->
+
+<section id="music" class="music music-experience">
+
+<div class="container music-container">
+
+<div class="music-header">
+
+<div class="music-heading">
+<span class="music-kicker">MÚSICA</span>
+
+<h2>
+A progressão começa<br>
+antes do primeiro drop.
+</h2>
+</div>
+
+<p class="music-intro">
+Assista à última apresentação e ouça o set mais recente do UPMAT.
+Duas experiências construídas para conduzir a energia de forma contínua,
+do primeiro ao último minuto.
+</p>
+
+</div>
+
+<div class="music-feature">
+
+<div class="music-feature-label">
+<span>01</span>
+<p>ÚLTIMA APRESENTAÇÃO</p>
+</div>
+
+<div class="music-video">
+<iframe
+src="https://www.youtube.com/embed/mPKSUMt8CHM"
+title="UPMAT | House Session | Tech House e Deep Tech"
+loading="lazy"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen>
+</iframe>
+</div>
+
+<div class="music-feature-footer">
+<div>
+<span>HOUSE SESSION</span>
+<p>Tech House · Deep Tech</p>
+</div>
+
+<a
+href="https://youtu.be/mPKSUMt8CHM"
+target="_blank"
+rel="noopener noreferrer"
+class="music-external-link"
+aria-label="Assistir à apresentação completa do UPMAT no YouTube">
+ASSISTIR NO YOUTUBE
+<span aria-hidden="true">↗</span>
+</a>
+</div>
+
+</div>
+
+<div class="music-soundcloud">
+
+<div class="music-feature-label">
+<span>02</span>
+<p>ÚLTIMO SET</p>
+</div>
+
+<div class="soundcloud-player">
+<iframe
+width="100%"
+height="300"
+scrolling="no"
+frameborder="no"
+allow="autoplay"
+loading="lazy"
+title="Último set do UPMAT no SoundCloud"
+src="https://w.soundcloud.com/player/?url=https%3A%2F%2Fsoundcloud.com%2Fmatheus-silva-459777880%2Fupmaaat-tech-house-128-bpm&color=%23d61d28&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=true">
+</iframe>
+</div>
+
+<div class="music-feature-footer">
+<div>
+<span>UPMAT</span>
+<p>Tech House · 128 BPM</p>
+</div>
+
+<a
+href="https://soundcloud.com/matheus-silva-459777880/upmaaat-tech-house-128-bpm"
+target="_blank"
+rel="noopener noreferrer"
+class="music-external-link"
+aria-label="Ouvir o último set do UPMAT no SoundCloud">
+OUVIR NO SOUNDCLOUD
+<span aria-hidden="true">↗</span>
+</a>
+</div>
+
+</div>
+
+<div class="music-platforms">
+
+<p>OUÇA E ACOMPANHE</p>
+
+<div class="music-platform-links">
+
+<a
+href="https://www.instagram.com/upmaaat"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Acompanhar UPMAT no Instagram">
+<span>INSTAGRAM</span>
+<i aria-hidden="true">↗</i>
+</a>
+
+<a
+href="https://youtube.com/@upmaaat"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Acompanhar UPMAT no YouTube">
+<span>YOUTUBE</span>
+<i aria-hidden="true">↗</i>
+</a>
+
+<a
+href="https://soundcloud.com/matheus-silva-459777880"
+target="_blank"
+rel="noopener noreferrer"
+aria-label="Acompanhar UPMAT no SoundCloud">
+<span>SOUNDCLOUD</span>
+<i aria-hidden="true">↗</i>
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================================
+GALERIA — HERO + GRID 2X2
+=================================================== -->
+
+<section id="gallery" class="gallery gallery-editorial">
+
+<div class="container gallery-container">
+
+<div class="gallery-header">
+
+<div class="gallery-heading">
+<span class="gallery-kicker">GALERIA</span>
+
+<h2>
+A energia<br>
+em movimento.
+</h2>
+</div>
+
+<p class="gallery-intro">
+Registros de uma pista construída em camadas:
+luz, movimento, tensão e conexão.
+</p>
+
+</div>
+
+<div class="gallery-featured">
+
+<figure class="gallery-item gallery-hero-item">
+<img src="images/gallery-04.jpg" alt="UPMAT diante da pista durante uma apresentação" loading="lazy">
+</figure>
+
+<div class="gallery-grid-compact">
+
+<figure class="gallery-item gallery-grid-item gallery-grid-item-01">
+<img src="images/gallery-01.jpg" alt="UPMAT em apresentação, registro 01" loading="lazy">
+</figure>
+
+<figure class="gallery-item gallery-grid-item gallery-grid-item-02">
+<img src="images/gallery-02.jpg" alt="UPMAT em apresentação, registro 02" loading="lazy">
+</figure>
+
+<figure class="gallery-item gallery-grid-item gallery-grid-item-03">
+<img src="images/gallery-03.jpg" alt="UPMAT em apresentação, registro 03" loading="lazy">
+</figure>
+
+<figure class="gallery-item gallery-grid-item gallery-grid-item-04">
+<img src="images/gallery-05.jpg" alt="UPMAT em apresentação, registro 05" loading="lazy">
+</figure>
+
+</div>
+
+</div>
+
+<div class="gallery-actions">
+<a
+href="https://www.instagram.com/upmaaat"
+target="_blank"
+rel="noopener noreferrer"
+class="gallery-view-all"
+aria-label="Ver mais fotos do UPMAT no Instagram">
+VER TODAS
+<span aria-hidden="true">↗</span>
+</a>
+</div>
+
+</div>
+
+</section>
+
+<!-- ===================================================
+PRESS KIT
+=================================================== -->
+
+<section id="presskit" class="presskit">
+
+<div class="container">
+
+<div class="section-title">
+<h5>PRESS KIT</h5>
+<h2>Material oficial</h2>
+</div>
+
+<p>
+Faça o download do press kit oficial contendo biografia,
+logos e informações para divulgação.
+</p>
+
+<a href="files/UPMAT_PRESSKIT.pdf" class="btn" download>
+BAIXAR PRESS KIT
+</a>
+
+</div>
+
+</section>
+
+<!-- ===================================================
+CONTATO
+=================================================== -->
+
+<section id="contact" class="contact">
+
+<div class="container">
+
+<div class="section-title">
+<h5>BOOKING</h5>
+<h2>Entre em contato</h2>
+</div>
+
+<div class="contact-grid">
+
+<a href="https://wa.me/5512981248225" target="_blank" rel="noopener noreferrer">
+WhatsApp
+</a>
+
+<a href="mailto:upmaaatic@icloud.com">
+upmaaatic@icloud.com
+</a>
+
+<a href="https://instagram.com/upmaaat" target="_blank" rel="noopener noreferrer">
+@upmaaat
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+<footer class="footer">
+
+<img src="images/logo.PNG" alt="UPMAT">
+
+<p>
+© 2026 UPMAT • Todos os direitos reservados.
+</p>
+
+</footer>
+
+<script src="script.js"></script>
+
 </body>
 </html>
