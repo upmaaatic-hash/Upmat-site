@@ -103,20 +103,46 @@ DISPONÍVEL
 <h3>Logos oficiais</h3>
 
 <p class="media-kit-logo-description">
-Arquivo oficial da identidade visual UPMAT.
+Deslize para conhecer as aplicações oficiais da marca.
 </p>
 
+<div class="media-kit-logo-carousel" data-logo-carousel>
+
+<button class="media-kit-carousel-arrow media-kit-carousel-arrow-prev" type="button" aria-label="Ver logo anterior" data-carousel-prev>
+<span aria-hidden="true">←</span>
+</button>
+
+<div class="media-kit-carousel-viewport" data-carousel-viewport>
+
+<article class="media-kit-logo-slide" data-logo-name="Logo branca" data-logo-file="images/UPMAT_Logo_Branca.png" data-logo-download="UPMAT_Logo_Branca.png">
 <div class="media-kit-logo-preview">
-<img
-src="images/UPMAT_Logo_Oficial.png"
-alt="Logo oficial da UPMAT em fundo branco"
-loading="lazy">
+<img src="images/UPMAT_Logo_Branca.png" alt="Aplicação branca da logo UPMAT sobre fundo claro" loading="lazy">
+</div>
+</article>
+
+<article class="media-kit-logo-slide" data-logo-name="Logo preta" data-logo-file="images/UPMAT_Logo_Preta.png" data-logo-download="UPMAT_Logo_Preta.png">
+<div class="media-kit-logo-preview">
+<img src="images/UPMAT_Logo_Preta.png" alt="Aplicação preta da logo UPMAT sobre fundo claro" loading="lazy">
+</div>
+</article>
+
+</div>
+
+<button class="media-kit-carousel-arrow media-kit-carousel-arrow-next" type="button" aria-label="Ver próxima logo" data-carousel-next>
+<span aria-hidden="true">→</span>
+</button>
+
+</div>
+
+<div class="media-kit-carousel-dots" role="tablist" aria-label="Aplicações da logo">
+<button class="is-active" type="button" aria-label="Ver logo branca" aria-selected="true" data-carousel-dot="0"></button>
+<button type="button" aria-label="Ver logo preta" aria-selected="false" data-carousel-dot="1"></button>
 </div>
 
 <div class="media-kit-logo-meta">
 <div>
 <span>ARQUIVO</span>
-<strong>Logo oficial</strong>
+<strong data-carousel-name>Logo branca</strong>
 </div>
 
 <div>
@@ -125,17 +151,13 @@ loading="lazy">
 </div>
 </div>
 
-<a
-href="images/UPMAT_Logo_Oficial.png"
-class="media-kit-download media-kit-download-primary"
-download="UPMAT_Logo_Oficial.png"
-id="download-logo-png">
+<a href="images/UPMAT_Logo_Branca.png" class="media-kit-download media-kit-download-primary" download="UPMAT_Logo_Branca.png" data-carousel-download>
 BAIXAR PNG
 <span aria-hidden="true">↓</span>
 </a>
 
 <p class="media-kit-format-note">
-Outros formatos serão adicionados futuramente.
+Arraste a imagem para o lado para trocar de aplicação.
 </p>
 
 </div>
@@ -281,29 +303,83 @@ ENTRAR EM CONTATO
 
 <script>
 (function(){
-    const button = document.getElementById('download-logo-png');
-    if(!button) return;
+    const carousel = document.querySelector('[data-logo-carousel]');
+    if(!carousel) return;
 
-    button.addEventListener('click', async function(event){
+    const viewport = carousel.querySelector('[data-carousel-viewport]');
+    const slides = Array.from(viewport.querySelectorAll('.media-kit-logo-slide'));
+    const dots = Array.from(document.querySelectorAll('[data-carousel-dot]'));
+    const previous = carousel.querySelector('[data-carousel-prev]');
+    const next = carousel.querySelector('[data-carousel-next]');
+    const name = document.querySelector('[data-carousel-name]');
+    const download = document.querySelector('[data-carousel-download]');
+    let activeIndex = 0;
+    let scrollTimer;
+
+    function update(index, shouldScroll){
+        activeIndex = Math.max(0, Math.min(index, slides.length - 1));
+        const activeSlide = slides[activeIndex];
+
+        dots.forEach((dot, dotIndex) => {
+            const selected = dotIndex === activeIndex;
+            dot.classList.toggle('is-active', selected);
+            dot.setAttribute('aria-selected', String(selected));
+        });
+
+        if(name) name.textContent = activeSlide.dataset.logoName;
+
+        if(download){
+            download.href = activeSlide.dataset.logoFile;
+            download.download = activeSlide.dataset.logoDownload;
+            download.setAttribute('aria-label', 'Baixar ' + activeSlide.dataset.logoName + ' em PNG');
+        }
+
+        previous.disabled = activeIndex === 0;
+        next.disabled = activeIndex === slides.length - 1;
+
+        if(shouldScroll){
+            viewport.scrollTo({ left: activeSlide.offsetLeft, behavior: 'smooth' });
+        }
+    }
+
+    previous.addEventListener('click', () => update(activeIndex - 1, true));
+    next.addEventListener('click', () => update(activeIndex + 1, true));
+
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => update(index, true));
+    });
+
+    viewport.addEventListener('scroll', () => {
+        window.clearTimeout(scrollTimer);
+        scrollTimer = window.setTimeout(() => {
+            const index = Math.round(viewport.scrollLeft / viewport.clientWidth);
+            update(index, false);
+        }, 80);
+    }, { passive:true });
+
+    download.addEventListener('click', async function(event){
         event.preventDefault();
+        const fileUrl = download.href;
+        const fileName = download.download;
 
         try{
-            const response = await fetch(button.href, { cache: 'no-store' });
+            const response = await fetch(fileUrl, { cache:'no-store' });
             if(!response.ok) throw new Error('Arquivo não encontrado');
-
             const blob = await response.blob();
-            const url = URL.createObjectURL(blob);
+            const objectUrl = URL.createObjectURL(blob);
             const link = document.createElement('a');
-            link.href = url;
-            link.download = 'UPMAT_Logo_Oficial.png';
+            link.href = objectUrl;
+            link.download = fileName;
             document.body.appendChild(link);
             link.click();
             link.remove();
-            setTimeout(() => URL.revokeObjectURL(url), 1000);
+            window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1500);
         }catch(error){
-            window.location.href = button.href;
+            window.open(fileUrl, '_blank', 'noopener');
         }
     });
+
+    update(0, false);
 })();
 </script>
 
