@@ -1,0 +1,47 @@
+UPMAT — SITE ATUALIZADO COM MEDIA KIT
+======================================
+
+ARQUIVOS PRONTOS
+----------------
+index.html
+style.css
+script.js
+media-kit.html
+media-kit.css
+
+
+COMO ATUALIZAR NO GITHUB
+------------------------
+1. Substitua o index.html atual pelo novo index.html.
+2. Mantenha/substitua style.css e script.js pelos arquivos enviados neste pacote.
+3. Adicione media-kit.html na raiz do projeto.
+4. Adicione media-kit.css na raiz do projeto.
+5. Faça o commit das alterações.
+
+
+IMPORTANTE
+----------
+O caminho da logo foi mantido exatamente como:
+
+images/logo.PNG
+
+
+DOWNLOAD DOS LOGOS
+------------------
+A página Media Kit procura o arquivo:
+
+downloads/logos/UPMAT_Logos_Oficiais.zip
+
+Crie essa estrutura no GitHub e envie o ZIP dos logos para esse local:
+
+downloads/
+└── logos/
+    └── UPMAT_Logos_Oficiais.zip
+
+
+FLUXO FINAL
+-----------
+Página inicial
+→ botão ACESSAR MEDIA KIT
+→ media-kit.html
+→ download dos materiais
