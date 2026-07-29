@@ -32,6 +32,8 @@ UPMAT — MEDIA KIT
 
 @media(max-width:600px){
   .media-kit-video-carousel,.media-kit-video-info,.media-kit-video-actions{width:220px}
-  .media-kit-video-arrow{display:none}
+  .media-kit-video-arrow{display:grid;width:38px;height:38px;background:rgba(5,5,5,.86);border-color:rgba(255,255,255,.28)}
+  .media-kit-video-arrow-prev{left:8px}
+  .media-kit-video-arrow-next{right:8px}
   .media-kit-video-note{max-width:220px}
 }
