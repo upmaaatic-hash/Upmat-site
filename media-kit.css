@@ -128,3 +128,117 @@ AJUSTES FINAIS DE LAYOUT — JULHO 2026
 
   .media-kit-footer-inner span{text-align:left}
 }
+
+
+/* ==================================================
+NOVO LAYOUT — VÍDEO EM DESTAQUE
+================================================== */
+
+/* O card de vídeo passa a ocupar toda a largura da grade */
+.media-kit-video-card{
+  grid-column:1 / -1;
+  padding:40px;
+}
+
+/* A área principal do vídeo fica visualmente maior que logos e fotos */
+.media-kit-video-card .media-kit-card-content{
+  width:100%;
+}
+
+.media-kit-video-carousel{
+  width:min(100%,1040px);
+  margin:34px auto 0;
+  padding-inline:34px;
+}
+
+.media-kit-video-frame{
+  aspect-ratio:16 / 9;
+}
+
+.media-kit-video-play{
+  width:88px;
+  height:88px;
+}
+
+.media-kit-video-play::before{
+  border-top-width:15px;
+  border-bottom-width:15px;
+  border-left-width:24px;
+}
+
+.media-kit-video-info,
+.media-kit-video-actions,
+.media-kit-video-note{
+  width:min(100%,972px);
+  max-width:972px;
+}
+
+.media-kit-video-info{
+  padding-top:4px;
+}
+
+.media-kit-video-info h4{
+  font-size:clamp(1.25rem,2vw,1.75rem);
+}
+
+.media-kit-video-actions{
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+}
+
+.media-kit-video-button{
+  min-height:66px;
+}
+
+@media(max-width:900px){
+  .media-kit-video-card{
+    grid-column:auto;
+    padding:30px 24px;
+  }
+
+  .media-kit-video-carousel{
+    width:100%;
+    padding-inline:24px;
+  }
+}
+
+@media(max-width:600px){
+  .media-kit-video-card{
+    padding:22px 14px;
+  }
+
+  .media-kit-video-card .media-kit-card-content{
+    width:100%;
+  }
+
+  .media-kit-video-carousel{
+    width:calc(100% + 18px);
+    margin-left:-9px;
+    margin-top:28px;
+    padding-inline:12px;
+  }
+
+  .media-kit-video-frame{
+    aspect-ratio:4 / 3;
+  }
+
+  .media-kit-video-play{
+    width:64px;
+    height:64px;
+  }
+
+  .media-kit-video-play::before{
+    border-top-width:11px;
+    border-bottom-width:11px;
+    border-left-width:18px;
+  }
+
+  .media-kit-video-actions{
+    grid-template-columns:1fr;
+    gap:10px;
+  }
+
+  .media-kit-video-button{
+    min-height:58px;
+  }
+}
