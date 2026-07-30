@@ -101,6 +101,49 @@
     update(0);
   }
 
+  /* Carrossel das fotos oficiais. */
+  const photoCarousel = document.querySelector("[data-photo-carousel]");
+
+  if (photoCarousel) {
+    const viewport = photoCarousel.querySelector("[data-photo-viewport]");
+    const track = photoCarousel.querySelector("[data-photo-track]");
+    const slides = track ? [...track.children] : [];
+    const dots = [...document.querySelectorAll("[data-photo-dot]")];
+    const name = document.querySelector("[data-photo-name]");
+    const view = document.querySelector("[data-photo-view]");
+    const download = document.querySelector("[data-photo-download]");
+    const previous = photoCarousel.querySelector("[data-photo-prev]");
+    const next = photoCarousel.querySelector("[data-photo-next]");
+    let index = 0;
+
+    const update = (newIndex) => {
+      if (!track || slides.length === 0) return;
+      index = (newIndex + slides.length) % slides.length;
+      track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
+
+      const slide = slides[index];
+      const file = slide.dataset.photoFile || "#";
+      if (name) name.textContent = slide.dataset.photoName || "";
+      if (view) view.href = file;
+      if (download) {
+        download.href = file;
+        download.setAttribute("download", slide.dataset.photoDownload || "");
+      }
+
+      dots.forEach((dot, dotIndex) => {
+        const active = dotIndex === index;
+        dot.classList.toggle("is-active", active);
+        dot.setAttribute("aria-selected", String(active));
+      });
+    };
+
+    previous?.addEventListener("click", () => update(index - 1));
+    next?.addEventListener("click", () => update(index + 1));
+    dots.forEach((dot) => dot.addEventListener("click", () => update(Number(dot.dataset.photoDot))));
+    addSwipe(viewport, () => update(index - 1), () => update(index + 1));
+    update(0);
+  }
+
   /* Carrossel premium de vídeos. Para adicionar outro vídeo, inclua um slide no HTML e um item nesta lista. */
   const videos = [
     {
