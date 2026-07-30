@@ -1,10 +1,14 @@
-/* Atalho do Media Kit no topo */
+/* ==================================================
+UPMAT — HERO COM CARDS À ESQUERDA
+================================================== */
+
+/* Atalho limpo no topo */
 .header-media-kit{
     display:inline-flex;
     align-items:center;
     gap:10px;
     min-height:44px;
-    padding:0 4px 6px;
+    padding:0 2px 6px;
     border-bottom:1px solid rgba(214,29,40,.85);
     color:#fff;
     font-size:.76rem;
@@ -23,42 +27,163 @@
     transform:translateY(-2px);
 }
 
-/* Atalho discreto abaixo dos botões */
-.hero-media-kit{
-    display:inline-flex;
-    align-items:center;
-    gap:12px;
-    margin:24px auto 18px;
-    padding:8px 4px;
-    border-bottom:1px solid rgba(255,255,255,.55);
-    color:#fff;
-    font-size:.72rem;
-    font-weight:700;
-    letter-spacing:.22em;
-    transition:color .25s ease,border-color .25s ease,transform .25s ease;
-}
-
-.hero-media-kit i{
-    color:#d61d28;
-    font-style:normal;
-    font-size:1rem;
-}
-
-.hero-media-kit:hover{
-    color:#d61d28;
-    border-color:#d61d28;
-    transform:translateY(-2px);
-}
-
-/* Corrige a margem herdada dos parágrafos da Hero */
-.hero .hero-location{
-    margin-top:4px;
-    margin-bottom:0;
-}
-
-/* O antigo menu móvel foi removido do HTML */
+/* Remove o menu antigo */
 .menu-mobile{
     display:none !important;
+}
+
+/* Grupo dos três cards */
+.hero-action-cards{
+    width:min(100%,430px);
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    margin:28px 0 22px;
+    align-self:flex-start;
+}
+
+/* Card principal */
+.hero-action-card{
+    width:100%;
+    min-height:76px;
+    padding:0 24px;
+    display:grid;
+    grid-template-columns:36px 1fr 28px;
+    align-items:center;
+    gap:18px;
+    border:1px solid #d61d28;
+    border-radius:12px;
+    background:rgba(0,0,0,.54);
+    color:#fff;
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    transition:background .25s ease,transform .25s ease,box-shadow .25s ease;
+}
+
+.hero-action-card strong{
+    text-align:left;
+    font-size:.86rem;
+    font-weight:700;
+    letter-spacing:.12em;
+}
+
+.hero-action-card:hover{
+    background:rgba(214,29,40,.14);
+    transform:translateX(5px);
+    box-shadow:0 12px 32px rgba(0,0,0,.32);
+}
+
+.hero-card-arrow{
+    color:#d61d28;
+    font-size:1.75rem;
+    font-weight:300;
+    line-height:1;
+    text-align:right;
+    transition:transform .25s ease;
+}
+
+.hero-action-card:hover .hero-card-arrow{
+    transform:translateX(4px);
+}
+
+/* Ícones lineares feitos em CSS — sem emojis */
+.hero-card-icon{
+    width:30px;
+    height:30px;
+    position:relative;
+    display:block;
+    color:#d61d28;
+}
+
+/* Play */
+.hero-card-icon-play::before{
+    content:"";
+    position:absolute;
+    left:6px;
+    top:4px;
+    width:0;
+    height:0;
+    border-top:11px solid transparent;
+    border-bottom:11px solid transparent;
+    border-left:18px solid #d61d28;
+}
+
+/* Envelope */
+.hero-card-icon-mail{
+    width:30px;
+    height:22px;
+    margin-top:4px;
+    border:2px solid #d61d28;
+    border-radius:3px;
+}
+
+.hero-card-icon-mail::before,
+.hero-card-icon-mail::after{
+    content:"";
+    position:absolute;
+    top:4px;
+    width:18px;
+    height:2px;
+    background:#d61d28;
+}
+
+.hero-card-icon-mail::before{
+    left:1px;
+    transform:rotate(34deg);
+    transform-origin:left center;
+}
+
+.hero-card-icon-mail::after{
+    right:1px;
+    transform:rotate(-34deg);
+    transform-origin:right center;
+}
+
+/* Documento */
+.hero-card-icon-file{
+    width:23px;
+    height:29px;
+    margin-left:3px;
+    border:2px solid #d61d28;
+    border-radius:2px;
+}
+
+.hero-card-icon-file::before{
+    content:"";
+    position:absolute;
+    top:-2px;
+    right:-2px;
+    width:8px;
+    height:8px;
+    border-left:2px solid #d61d28;
+    border-bottom:2px solid #d61d28;
+    background:rgba(0,0,0,.75);
+}
+
+.hero-card-icon-file::after{
+    content:"";
+    position:absolute;
+    left:5px;
+    bottom:6px;
+    width:10px;
+    height:2px;
+    background:#d61d28;
+    box-shadow:0 -5px 0 #d61d28;
+}
+
+/* O bloco da Hero usa a esquerda como eixo visual */
+.hero-content{
+    align-items:flex-start;
+    text-align:left;
+}
+
+.hero-description{
+    max-width:610px;
+}
+
+.hero-location{
+    margin-top:4px;
+    margin-bottom:0;
 }
 
 @media(max-width:900px){
@@ -84,94 +209,56 @@
         letter-spacing:.13em;
     }
 
-    .hero-media-kit{
-        margin-top:20px;
-        margin-bottom:14px;
-        font-size:.67rem;
-        letter-spacing:.18em;
+    .hero-content{
+        width:100%;
+        padding-left:24px;
+        padding-right:24px;
+        align-items:flex-start !important;
+        text-align:left !important;
     }
 
-    .hero .hero-location{
+    .hero-logo{
+        align-self:flex-start;
+    }
+
+    .hero-genre,
+    .hero-description{
+        text-align:left;
+    }
+
+    .hero-action-cards{
+        width:82%;
+        max-width:390px;
+        margin-left:0;
+        margin-right:auto;
+        gap:10px;
+    }
+
+    .hero-action-card{
+        min-height:68px;
+        padding:0 18px;
+        grid-template-columns:32px 1fr 24px;
+        gap:14px;
+        border-radius:10px;
+    }
+
+    .hero-action-card strong{
+        font-size:.75rem;
+        letter-spacing:.10em;
+    }
+
+    .hero-card-arrow{
+        font-size:1.55rem;
+    }
+
+    .hero-card-icon{
+        transform:scale(.88);
+        transform-origin:left center;
+    }
+
+    .hero-location{
+        align-self:flex-start;
+        text-align:left;
         font-size:.95rem;
-    }
-}
-
-
-/* Ícones quadrados do Media Kit — sem emoji do sistema */
-.media-kit-square-icon{
-    width:28px;
-    height:28px;
-    flex:0 0 28px;
-    display:inline-block;
-    position:relative;
-    border:1px solid #d61d28;
-    border-radius:4px;
-    background:#d61d28;
-    box-shadow:0 8px 20px rgba(214,29,40,.28);
-}
-
-.media-kit-square-icon::before{
-    content:"";
-    position:absolute;
-    width:8px;
-    height:8px;
-    top:7px;
-    right:7px;
-    border-top:2px solid #fff;
-    border-right:2px solid #fff;
-}
-
-.media-kit-square-icon::after{
-    content:"";
-    position:absolute;
-    width:10px;
-    height:2px;
-    left:8px;
-    bottom:8px;
-    background:#fff;
-    transform:rotate(-45deg);
-    transform-origin:left center;
-}
-
-/* Versão inferior com contraste invertido */
-.hero-media-kit .media-kit-square-icon{
-    border-color:#fff;
-    background:#fff;
-    box-shadow:0 8px 20px rgba(255,255,255,.16);
-}
-
-.hero-media-kit .media-kit-square-icon::before{
-    border-color:#d61d28;
-}
-
-.hero-media-kit .media-kit-square-icon::after{
-    background:#d61d28;
-}
-
-.header-media-kit:hover .media-kit-square-icon,
-.hero-media-kit:hover .media-kit-square-icon{
-    transform:translate(2px,-2px);
-}
-
-.header-media-kit .media-kit-square-icon,
-.hero-media-kit .media-kit-square-icon{
-    transition:transform .22s ease,background .22s ease,border-color .22s ease;
-}
-
-@media(max-width:600px){
-    .media-kit-square-icon{
-        width:26px;
-        height:26px;
-        flex-basis:26px;
-    }
-
-    .media-kit-square-icon::before{
-        top:6px;
-        right:6px;
-    }
-
-    .media-kit-square-icon::after{
-        left:7px;
-        bottom:7px;
     }
 }
