@@ -95,3 +95,83 @@
         font-size:.95rem;
     }
 }
+
+
+/* Ícones quadrados do Media Kit — sem emoji do sistema */
+.media-kit-square-icon{
+    width:28px;
+    height:28px;
+    flex:0 0 28px;
+    display:inline-block;
+    position:relative;
+    border:1px solid #d61d28;
+    border-radius:4px;
+    background:#d61d28;
+    box-shadow:0 8px 20px rgba(214,29,40,.28);
+}
+
+.media-kit-square-icon::before{
+    content:"";
+    position:absolute;
+    width:8px;
+    height:8px;
+    top:7px;
+    right:7px;
+    border-top:2px solid #fff;
+    border-right:2px solid #fff;
+}
+
+.media-kit-square-icon::after{
+    content:"";
+    position:absolute;
+    width:10px;
+    height:2px;
+    left:8px;
+    bottom:8px;
+    background:#fff;
+    transform:rotate(-45deg);
+    transform-origin:left center;
+}
+
+/* Versão inferior com contraste invertido */
+.hero-media-kit .media-kit-square-icon{
+    border-color:#fff;
+    background:#fff;
+    box-shadow:0 8px 20px rgba(255,255,255,.16);
+}
+
+.hero-media-kit .media-kit-square-icon::before{
+    border-color:#d61d28;
+}
+
+.hero-media-kit .media-kit-square-icon::after{
+    background:#d61d28;
+}
+
+.header-media-kit:hover .media-kit-square-icon,
+.hero-media-kit:hover .media-kit-square-icon{
+    transform:translate(2px,-2px);
+}
+
+.header-media-kit .media-kit-square-icon,
+.hero-media-kit .media-kit-square-icon{
+    transition:transform .22s ease,background .22s ease,border-color .22s ease;
+}
+
+@media(max-width:600px){
+    .media-kit-square-icon{
+        width:26px;
+        height:26px;
+        flex-basis:26px;
+    }
+
+    .media-kit-square-icon::before{
+        top:6px;
+        right:6px;
+    }
+
+    .media-kit-square-icon::after{
+        left:7px;
+        bottom:7px;
+    }
+}
