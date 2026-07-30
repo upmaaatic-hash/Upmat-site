@@ -109,7 +109,7 @@
     const track = photoCarousel.querySelector("[data-photo-track]");
     const slides = track ? [...track.children] : [];
     const dots = [...document.querySelectorAll("[data-photo-dot]")];
-    const name = document.querySelector("[data-photo-name]");
+    const name = document.querySelector("[data-photo-label]");
     const view = document.querySelector("[data-photo-view]");
     const download = document.querySelector("[data-photo-download]");
     const previous = photoCarousel.querySelector("[data-photo-prev]");
@@ -127,7 +127,7 @@
       if (view) view.href = file;
       if (download) {
         download.href = file;
-        download.setAttribute("download", slide.dataset.photoDownload || "");
+        download.setAttribute("download", slide.dataset.photoDownloadName || "");
       }
 
       dots.forEach((dot, dotIndex) => {
