@@ -242,3 +242,136 @@ NOVO LAYOUT — VÍDEO EM DESTAQUE
     min-height:58px;
   }
 }
+
+
+/* ==================================================
+CORREÇÃO REAL — VÍDEO GRANDE / FULL WIDTH
+================================================== */
+
+.media-kit-video-card{
+  display:block !important;
+  grid-column:1 / -1;
+  padding:0 !important;
+  overflow:hidden;
+}
+
+.media-kit-video-topbar{
+  min-height:66px;
+  padding:0 34px;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.media-kit-video-topbar .media-kit-status{
+  margin:0;
+  justify-self:center;
+}
+
+.media-kit-video-topbar .media-kit-file-type{
+  justify-self:end;
+}
+
+.media-kit-video-content{
+  padding:42px 44px 46px;
+}
+
+.media-kit-video-content > h3,
+.media-kit-video-content > p{
+  max-width:760px;
+}
+
+.media-kit-video-carousel{
+  width:100% !important;
+  max-width:none !important;
+  margin:38px auto 0 !important;
+  padding:0 54px !important;
+}
+
+.media-kit-video-viewport{
+  width:100%;
+}
+
+.media-kit-video-frame{
+  aspect-ratio:16 / 9 !important;
+}
+
+.media-kit-video-info,
+.media-kit-video-actions,
+.media-kit-video-note{
+  width:100% !important;
+  max-width:none !important;
+}
+
+@media(max-width:600px){
+  .media-kit-video-card{
+    width:calc(100vw - 24px);
+    margin-left:calc(50% - 50vw + 12px);
+    border-radius:18px;
+  }
+
+  .media-kit-video-topbar{
+    min-height:58px;
+    padding:0 18px;
+  }
+
+  .media-kit-video-content{
+    padding:28px 18px 30px;
+  }
+
+  .media-kit-video-content > h3{
+    font-size:2.25rem;
+  }
+
+  .media-kit-video-content > p{
+    font-size:1rem;
+    line-height:1.65;
+  }
+
+  .media-kit-video-carousel{
+    width:calc(100% + 36px) !important;
+    margin-left:-18px !important;
+    padding:0 14px !important;
+  }
+
+  .media-kit-video-frame{
+    aspect-ratio:9 / 12 !important;
+    border-radius:18px !important;
+  }
+
+  .media-kit-video-frame img{
+    object-fit:cover;
+    object-position:center;
+  }
+
+  .media-kit-video-arrow{
+    width:50px;
+    height:50px;
+  }
+
+  .media-kit-video-arrow-prev{left:-2px}
+  .media-kit-video-arrow-next{right:-2px}
+
+  .media-kit-video-play{
+    width:72px;
+    height:72px;
+  }
+
+  .media-kit-video-info{
+    padding:2px 4px 20px;
+  }
+
+  .media-kit-video-info h4{
+    font-size:1.35rem;
+    line-height:1.25;
+  }
+
+  .media-kit-video-actions{
+    padding:0 4px;
+  }
+
+  .media-kit-video-button{
+    min-height:62px;
+  }
+}
