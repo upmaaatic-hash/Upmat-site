@@ -1,5 +1,5 @@
 /* ==================================================
-UPMAT — HERO COM CARDS À ESQUERDA
+UPMAT — NAVEGAÇÃO LEVE E QUASE TRANSPARENTE
 ================================================== */
 
 /* Atalho limpo no topo */
@@ -9,7 +9,7 @@ UPMAT — HERO COM CARDS À ESQUERDA
     gap:10px;
     min-height:44px;
     padding:0 2px 6px;
-    border-bottom:1px solid rgba(214,29,40,.85);
+    border-bottom:1px solid rgba(214,29,40,.75);
     color:#fff;
     font-size:.76rem;
     font-weight:700;
@@ -24,58 +24,80 @@ UPMAT — HERO COM CARDS À ESQUERDA
 
 .header-media-kit:hover{
     color:#d61d28;
+    border-color:#d61d28;
     transform:translateY(-2px);
 }
 
-/* Remove o menu antigo */
 .menu-mobile{
     display:none !important;
 }
 
-/* Grupo dos três cards */
+/* Alinhamento geral da Hero */
+.hero-content{
+    align-items:flex-start;
+    text-align:left;
+}
+
+.hero-description{
+    max-width:610px;
+}
+
+.hero-location{
+    margin-top:22px;
+    margin-bottom:0;
+}
+
+/* Navegação principal: sem fundo, sem caixa e sem blur */
 .hero-action-cards{
     width:min(100%,430px);
     display:flex;
     flex-direction:column;
-    gap:12px;
-    margin:28px 0 22px;
+    gap:0;
+    margin:30px 0 0;
     align-self:flex-start;
 }
 
-/* Card principal */
 .hero-action-card{
     width:100%;
-    min-height:76px;
-    padding:0 24px;
+    min-height:68px;
+    padding:0 4px;
     display:grid;
-    grid-template-columns:36px 1fr 28px;
+    grid-template-columns:42px 1fr 30px;
     align-items:center;
-    gap:18px;
-    border:1px solid #d61d28;
-    border-radius:12px;
-    background:rgba(0,0,0,.54);
+    gap:16px;
+    border:0;
+    border-bottom:1px solid rgba(255,255,255,.17);
+    border-radius:0;
+    background:transparent;
     color:#fff;
-    backdrop-filter:blur(5px);
-    -webkit-backdrop-filter:blur(5px);
-    transition:background .25s ease,transform .25s ease,box-shadow .25s ease;
+    box-shadow:none;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    transition:border-color .25s ease,transform .25s ease,color .25s ease;
+}
+
+.hero-action-card:last-child{
+    border-bottom-color:transparent;
 }
 
 .hero-action-card strong{
     text-align:left;
-    font-size:.86rem;
-    font-weight:700;
-    letter-spacing:.12em;
+    font-size:.82rem;
+    font-weight:600;
+    letter-spacing:.13em;
 }
 
+/* Apenas um toque de movimento */
 .hero-action-card:hover{
-    background:rgba(214,29,40,.14);
-    transform:translateX(5px);
-    box-shadow:0 12px 32px rgba(0,0,0,.32);
+    background:transparent;
+    border-bottom-color:rgba(255,255,255,.40);
+    transform:translateX(4px);
+    box-shadow:none;
 }
 
 .hero-card-arrow{
     color:#d61d28;
-    font-size:1.75rem;
+    font-size:1.55rem;
     font-weight:300;
     line-height:1;
     text-align:right;
@@ -83,16 +105,16 @@ UPMAT — HERO COM CARDS À ESQUERDA
 }
 
 .hero-action-card:hover .hero-card-arrow{
-    transform:translateX(4px);
+    transform:translateX(5px);
 }
 
-/* Ícones lineares feitos em CSS — sem emojis */
+/* Ícones lineares finos */
 .hero-card-icon{
-    width:30px;
-    height:30px;
+    width:28px;
+    height:28px;
     position:relative;
     display:block;
-    color:#d61d28;
+    color:rgba(255,255,255,.88);
 }
 
 /* Play */
@@ -103,28 +125,28 @@ UPMAT — HERO COM CARDS À ESQUERDA
     top:4px;
     width:0;
     height:0;
-    border-top:11px solid transparent;
-    border-bottom:11px solid transparent;
-    border-left:18px solid #d61d28;
+    border-top:10px solid transparent;
+    border-bottom:10px solid transparent;
+    border-left:17px solid rgba(255,255,255,.88);
 }
 
 /* Envelope */
 .hero-card-icon-mail{
-    width:30px;
-    height:22px;
+    width:27px;
+    height:19px;
     margin-top:4px;
-    border:2px solid #d61d28;
-    border-radius:3px;
+    border:1.5px solid rgba(255,255,255,.88);
+    border-radius:2px;
 }
 
 .hero-card-icon-mail::before,
 .hero-card-icon-mail::after{
     content:"";
     position:absolute;
-    top:4px;
-    width:18px;
-    height:2px;
-    background:#d61d28;
+    top:3px;
+    width:16px;
+    height:1.5px;
+    background:rgba(255,255,255,.88);
 }
 
 .hero-card-icon-mail::before{
@@ -141,23 +163,23 @@ UPMAT — HERO COM CARDS À ESQUERDA
 
 /* Documento */
 .hero-card-icon-file{
-    width:23px;
-    height:29px;
+    width:21px;
+    height:27px;
     margin-left:3px;
-    border:2px solid #d61d28;
-    border-radius:2px;
+    border:1.5px solid rgba(255,255,255,.88);
+    border-radius:1px;
 }
 
 .hero-card-icon-file::before{
     content:"";
     position:absolute;
-    top:-2px;
-    right:-2px;
-    width:8px;
-    height:8px;
-    border-left:2px solid #d61d28;
-    border-bottom:2px solid #d61d28;
-    background:rgba(0,0,0,.75);
+    top:-1.5px;
+    right:-1.5px;
+    width:7px;
+    height:7px;
+    border-left:1.5px solid rgba(255,255,255,.88);
+    border-bottom:1.5px solid rgba(255,255,255,.88);
+    background:transparent;
 }
 
 .hero-card-icon-file::after{
@@ -165,25 +187,10 @@ UPMAT — HERO COM CARDS À ESQUERDA
     position:absolute;
     left:5px;
     bottom:6px;
-    width:10px;
-    height:2px;
-    background:#d61d28;
-    box-shadow:0 -5px 0 #d61d28;
-}
-
-/* O bloco da Hero usa a esquerda como eixo visual */
-.hero-content{
-    align-items:flex-start;
-    text-align:left;
-}
-
-.hero-description{
-    max-width:610px;
-}
-
-.hero-location{
-    margin-top:4px;
-    margin-bottom:0;
+    width:9px;
+    height:1.5px;
+    background:rgba(255,255,255,.88);
+    box-shadow:0 -5px 0 rgba(255,255,255,.88);
 }
 
 @media(max-width:900px){
@@ -227,38 +234,38 @@ UPMAT — HERO COM CARDS À ESQUERDA
     }
 
     .hero-action-cards{
-        width:82%;
-        max-width:390px;
+        width:78%;
+        max-width:370px;
         margin-left:0;
         margin-right:auto;
-        gap:10px;
+        margin-top:24px;
     }
 
     .hero-action-card{
-        min-height:68px;
-        padding:0 18px;
-        grid-template-columns:32px 1fr 24px;
-        gap:14px;
-        border-radius:10px;
+        min-height:60px;
+        padding:0 2px;
+        grid-template-columns:34px 1fr 24px;
+        gap:13px;
     }
 
     .hero-action-card strong{
-        font-size:.75rem;
-        letter-spacing:.10em;
+        font-size:.72rem;
+        letter-spacing:.11em;
     }
 
     .hero-card-arrow{
-        font-size:1.55rem;
+        font-size:1.4rem;
     }
 
     .hero-card-icon{
-        transform:scale(.88);
+        transform:scale(.82);
         transform-origin:left center;
     }
 
     .hero-location{
         align-self:flex-start;
         text-align:left;
+        margin-top:18px;
         font-size:.95rem;
     }
 }
