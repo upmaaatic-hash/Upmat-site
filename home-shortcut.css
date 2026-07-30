@@ -1,0 +1,97 @@
+/* Atalho do Media Kit no topo */
+.header-media-kit{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    min-height:44px;
+    padding:0 4px 6px;
+    border-bottom:1px solid rgba(214,29,40,.85);
+    color:#fff;
+    font-size:.76rem;
+    font-weight:700;
+    letter-spacing:.18em;
+    transition:color .25s ease,border-color .25s ease,transform .25s ease;
+}
+
+.header-media-kit span{
+    color:#d61d28;
+    font-size:1rem;
+}
+
+.header-media-kit:hover{
+    color:#d61d28;
+    transform:translateY(-2px);
+}
+
+/* Atalho discreto abaixo dos botões */
+.hero-media-kit{
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    margin:24px auto 18px;
+    padding:8px 4px;
+    border-bottom:1px solid rgba(255,255,255,.55);
+    color:#fff;
+    font-size:.72rem;
+    font-weight:700;
+    letter-spacing:.22em;
+    transition:color .25s ease,border-color .25s ease,transform .25s ease;
+}
+
+.hero-media-kit i{
+    color:#d61d28;
+    font-style:normal;
+    font-size:1rem;
+}
+
+.hero-media-kit:hover{
+    color:#d61d28;
+    border-color:#d61d28;
+    transform:translateY(-2px);
+}
+
+/* Corrige a margem herdada dos parágrafos da Hero */
+.hero .hero-location{
+    margin-top:4px;
+    margin-bottom:0;
+}
+
+/* O antigo menu móvel foi removido do HTML */
+.menu-mobile{
+    display:none !important;
+}
+
+@media(max-width:900px){
+    .header-media-kit{
+        min-height:40px;
+        font-size:.68rem;
+        letter-spacing:.15em;
+    }
+}
+
+@media(max-width:600px){
+    .nav-container{
+        height:76px;
+    }
+
+    .logo img{
+        height:48px;
+    }
+
+    .header-media-kit{
+        gap:8px;
+        font-size:.64rem;
+        letter-spacing:.13em;
+    }
+
+    .hero-media-kit{
+        margin-top:20px;
+        margin-bottom:14px;
+        font-size:.67rem;
+        letter-spacing:.18em;
+    }
+
+    .hero .hero-location{
+        font-size:.95rem;
+    }
+}
