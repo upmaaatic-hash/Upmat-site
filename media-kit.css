@@ -63,3 +63,68 @@ FOTOS OFICIAIS — CARROSSEL
 ================================================== */
 .media-kit-photo-card{display:block}.media-kit-photo-topbar{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:center;margin-bottom:34px}.media-kit-photo-topbar .media-kit-status{justify-self:start}.media-kit-photo-content{padding:0}.media-kit-photo-description{max-width:620px;margin-bottom:30px}.media-kit-photo-carousel{position:relative;display:flex;align-items:center;width:100%;padding-inline:54px}.media-kit-photo-viewport{width:100%;overflow:hidden;border:1px solid rgba(255,255,255,.12);border-radius:16px;background:#0b0b0b}.media-kit-photo-track{display:flex;transition:transform .55s cubic-bezier(.22,.61,.36,1);will-change:transform}.media-kit-photo-slide{flex:0 0 100%;min-width:100%}.media-kit-photo-preview{position:relative;width:100%;aspect-ratio:4/5;max-height:680px;overflow:hidden;background:#111}.media-kit-photo-preview img{display:block;width:100%;height:100%;object-fit:cover}.media-kit-photo-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}.media-kit-photo-button{display:flex;align-items:center;justify-content:center;gap:12px;min-height:58px;padding:16px 20px;border:1px solid rgba(255,255,255,.2);border-radius:8px;color:#fff;font-size:.68rem;font-weight:700;letter-spacing:.13em;text-decoration:none;transition:.25s ease}.media-kit-photo-button:hover{border-color:#fff;background:#fff;color:#050505}.media-kit-photo-download{border-color:#e21b23;background:#e21b23}.media-kit-photo-download:hover{border-color:#ff3138;background:#ff3138;color:#fff}
 @media(max-width:600px){.media-kit-photo-topbar{margin-bottom:28px}.media-kit-photo-carousel{width:calc(100% + 8px);margin-left:-4px;padding-inline:16px}.media-kit-photo-viewport{border-radius:14px}.media-kit-photo-preview{aspect-ratio:4/5;max-height:560px}.media-kit-photo-actions{grid-template-columns:1fr 1fr;gap:8px}.media-kit-photo-button{min-height:54px;padding:13px 8px;font-size:.56rem;letter-spacing:.10em;gap:7px}}
+
+
+/* ==================================================
+AJUSTES FINAIS DE LAYOUT — JULHO 2026
+================================================== */
+
+/* 01 — Logo do cabeçalho com mais presença */
+.media-kit-logo img{height:64px}
+
+/* 02 — Ritmo vertical uniforme */
+.media-kit-logo-content h3,
+.media-kit-photo-content h3,
+.media-kit-video-card h3{margin:0 0 16px}
+
+.media-kit-logo-description,
+.media-kit-photo-description,
+.media-kit-video-card .media-kit-card-content>p{
+  min-height:3.5em;
+  margin:0 0 30px;
+}
+
+/* 03 — Cantos mais suaves */
+.media-kit-card{border-radius:22px;overflow:hidden}
+.media-kit-logo-preview,
+.media-kit-photo-viewport,
+.media-kit-video-viewport{border-radius:22px}
+.media-kit-video-frame{border-radius:21px}
+.media-kit-photo-button{border-radius:12px}
+
+/* 04 — Botões ligeiramente mais altos */
+.media-kit-download,
+.media-kit-contact-button,
+.media-kit-video-button,
+.media-kit-photo-button{min-height:62px}
+
+/* 05 — Assinatura editorial no rodapé */
+.media-kit-footer-inner p{
+  color:rgba(255,255,255,.72);
+  font-weight:700;
+}
+.media-kit-footer-inner span{text-align:right}
+
+@media(max-width:600px){
+  .media-kit-logo img{height:54px}
+
+  .media-kit-logo-description,
+  .media-kit-photo-description,
+  .media-kit-video-card .media-kit-card-content>p{
+    min-height:auto;
+    margin-bottom:26px;
+  }
+
+  .media-kit-card{border-radius:18px}
+  .media-kit-logo-preview,
+  .media-kit-photo-viewport,
+  .media-kit-video-viewport{border-radius:18px}
+  .media-kit-video-frame{border-radius:17px}
+
+  .media-kit-download,
+  .media-kit-contact-button,
+  .media-kit-video-button,
+  .media-kit-photo-button{min-height:58px}
+
+  .media-kit-footer-inner span{text-align:left}
+}
